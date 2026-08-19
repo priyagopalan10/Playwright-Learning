@@ -13,4 +13,9 @@ const backpack = product. filter ({ hasText : 'Sauce Labs Backpack'});
 await expect(backpack). toHaveCount(1);
 const bikelightlocator = product. filter ({ hasText : 'Sauce Labs Bike Light'});
 await expect(bikelightlocator). toHaveCount(1);
+const products = page.locator('.inventory_item').filter({ hasText: 'Sauce Labs Backpack'});
+await expect(products).toHaveCount(1);
+await products.getByRole('button', {name : 'Add to cart'}). click();
+
+
 });
