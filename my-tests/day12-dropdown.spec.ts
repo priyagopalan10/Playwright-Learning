@@ -16,4 +16,6 @@ const prices = page.locator('.inventory_item_price');
 const pricesT = await prices.allTextContents();
 console.log(pricesT);
 await expect(prices.first()).toHaveText('$7.99');
+const priceValues = pricesT.map(price => Number(price.replace('$', '')));
+console.log(priceValues);
 });
