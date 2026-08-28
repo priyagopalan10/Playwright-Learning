@@ -11,6 +11,11 @@ export class ProductsPage {
     readonly removeButton = this.bikeLight.getByRole('button', {
         name: 'Remove'
     });
+    readonly cart = this.page.locator('.shopping_cart_link');
+
+async goToCart() {
+    await this.cart.click();
+}
 
     async addBikeLight() {
 
@@ -21,5 +26,8 @@ export class ProductsPage {
         await addToCart.click();
 
         await expect(this.removeButton).toBeVisible();
+    }
+    async removeBikeLight() {
+        await this.removeButton.click();
     }
 }
