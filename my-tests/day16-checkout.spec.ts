@@ -2,7 +2,9 @@ import { test } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
 import { ProductsPage } from '../pages/ProductsPage';
 import { CartPage } from '../pages/CartPage';
+import { checkoutData } from './test-data/checkoutData';
 import { CheckoutPage } from '../pages/CheckoutPage';
+
 
 test('Day 16 - Checkout test', async ({ page }) => {
 
@@ -19,7 +21,7 @@ test('Day 16 - Checkout test', async ({ page }) => {
     await cartPage.goToCheckout();
 
     const checkoutPage = new CheckoutPage(page);
-    await checkoutPage.completeCustomerDetails();
+   await checkoutPage.completeCustomerDetails(checkoutData.firstName,checkoutData.lastName,checkoutData.postalCode);
     await checkoutPage.verifyCheckoutPage();
 
 });
