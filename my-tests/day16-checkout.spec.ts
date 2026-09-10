@@ -16,8 +16,8 @@ test('Day 16 - Checkout test', async ({ page }) => {
     await productsPage.goToCart();
    
 
-    const cartPage = new CartPage(page);
-   await cartPage.verifyBikeLightInCart();
+
+    await cartPage.verifyBikeLightInCart();
     await cartPage.goToCheckout();
 
     const checkoutPage = new CheckoutPage(page);
