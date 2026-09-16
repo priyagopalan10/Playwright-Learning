@@ -14,7 +14,7 @@ test('Day 16 - Checkout test', async ({ page }) => {
     const productsPage = new ProductsPage(page);
     await productsPage.addBikeLight();
     await productsPage.goToCart();
-   
+   const cartPage = new CartPage(page);
 
 
     await cartPage.verifyBikeLightInCart();
@@ -23,5 +23,6 @@ test('Day 16 - Checkout test', async ({ page }) => {
     const checkoutPage = new CheckoutPage(page);
    await checkoutPage.completeCustomerDetails(checkoutData.firstName,checkoutData.lastName,checkoutData.postalCode);
     await checkoutPage.verifyCheckoutPage();
+    
 
 });

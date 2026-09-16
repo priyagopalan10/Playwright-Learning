@@ -21,4 +21,4 @@ export class LoginPage {
         await this.password.fill('secret_sauce');
         await this.loginButton.click();
     }
-}
+ }

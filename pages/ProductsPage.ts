@@ -15,9 +15,13 @@ export class ProductsPage {
     readonly cart = this.page.locator('.shopping_cart_link');
     readonly cartBadge = this.page.locator('[data-test="shopping-cart-badge"]');
 
+    
     async goToCart() {
         await this.cart.click();
     }
+    async verifyProductsPage() {
+    await expect(this.page).toHaveURL(/inventory.html/);
+}
 
     async addBikeLight() {
 
@@ -59,4 +63,5 @@ async verifyCartNotEmpty() {
 async verifyCartEmpty() {
     await expect(this.cartBadge).toBeHidden();
 }
+
 }

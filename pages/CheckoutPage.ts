@@ -25,6 +25,7 @@ export class CheckoutPage {
 
     async completeCustomerDetails(firstName, lastName, postalCode) {
         await this.firstName.fill(firstName);
+        await this.verifyFirstName(firstName);
         await this.lastName.fill(lastName);
         await this.postalCode.fill(postalCode);
         await this.continueButton.click();
@@ -33,4 +34,7 @@ export class CheckoutPage {
     async verifyCheckoutPage() {
         await expect(this.checkoutOverview).toBeVisible();
     }
+    async verifyFirstName(value) {
+    await expect(this.firstName).toHaveValue(value);
+}
 }
